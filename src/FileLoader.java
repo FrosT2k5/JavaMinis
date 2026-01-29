@@ -2,7 +2,6 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
-import java.util.ArrayList;
 import java.util.List;
 
 public class FileLoader {
@@ -29,14 +28,14 @@ public class FileLoader {
         for (String line: fileLines) {
 
             // Ignore newlines or empty lines
-            if (line.isEmpty() || line.equals('\n')) { continue ; }
+            if (line.equals("\n") || line.isEmpty() ) { continue ; }
             for (String word: line.split(" ")) {
                 // remove all punctuations from words
                 word = word.replaceAll("[^\\sa-zA-Z0-9]", "");
 
                 if (word.isEmpty()) {
                     continue;
-                };
+                }
 
                 outputString.append(" ");
                 outputString.append(word);
